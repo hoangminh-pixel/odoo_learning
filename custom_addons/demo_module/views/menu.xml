@@ -1,0 +1,25 @@
+<odoo>
+    <menuitem id="menu_training_root" name="Training"/>
+
+    <menuitem
+        id="menu_course"
+        name="Courses"
+        parent="menu_training_root"
+        />
+
+      <menuitem
+        id="menu_course_1"
+        name="Courses_1"
+        parent="menu_training_root"
+        action="action_course"
+        sequence='2'
+        />  
+
+       <menuitem
+        id="menu_course_test"
+        name="Test Model"
+        parent="menu_training_root"
+        action='action_course_test'
+        sequence='1'
+        />
+</odoo>

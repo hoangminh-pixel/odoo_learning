@@ -1,0 +1,11 @@
+<odoo>
+    <record id="course_demo_1" model="training.course">
+        <field name="name">Python for Beginners</field>
+        <field name="description">Intro to Python</field>
+    </record>
+
+    <record id="course_demo_2" model="training.course">
+        <field name="name">Odoo Developer</field>
+        <field name="description">Learn Odoo framework</field>
+    </record>
+</odoo>

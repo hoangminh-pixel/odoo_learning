@@ -1,0 +1,8 @@
+<odoo>
+  <menuitem id="menu_sale_demo" name="Sale"/>
+
+  <menuitem id="menu_sale" name="Sales" parent="menu_sale_demo" />
+
+  <menuitem id="sale_demo_menu" name="Sales demo" parent="menu_sale_demo" action="action_view_order" sequence='2'
+        />
+</odoo>
