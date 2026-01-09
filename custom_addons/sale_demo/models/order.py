@@ -36,7 +36,9 @@ class SaleOrder(models.Model):
     # ---------- CREATE ----------
     @api.model
     def api_create(self, vals):
-        # order = self.create(vals)
+        if not vals.get('name'):
+            raise ValidationError("name is required")
+
         lines = vals.pop('line_ids', [])
 
         order = self.create({
@@ -50,15 +52,32 @@ class SaleOrder(models.Model):
                 for line in lines
             ]
         })
+
         return order.api_read_detail()
 
     # ---------- READ LIST ----------
     @api.model
-    def api_get_list(self):
-        orders = self.search([])
-        return [o.api_read_detail() for o in orders]
+    def api_get_list(self, limit=20, page=1):
+        limit = max(1, int(limit))
+        page = max(1, int(page))
+        offset = (page - 1) * limit
 
+
+        orders = self.search([], limit=limit,
+                             offset=offset, order='id desc')
+        total = self.search_count([])
+
+        return {
+            'data': [o.api_read_detail() for o in orders],
+            'pagination': {
+                'page': page,
+                'limit': limit,
+                'total': total,
+                'total_pages': (total + limit - 1) // limit
+            }
+        }
     # ---------- READ DETAIL ----------
+
     def api_read_detail(self):
         self.ensure_one()
         return {
