@@ -4,3 +4,4 @@
 from . import onboarding
 from . import portal
 from . import variant
+from . import sale_order_controller
