@@ -1,0 +1,12 @@
+<odoo>
+
+      <record id="action_crm_customer_request" model="ir.actions.act_window">
+            <field name="name">Customer Requests</field>
+            <field name="res_model">crm.customer.request</field>
+            <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem id="menu_crm_customer_request_root" name="Customer Requests" parent="crm.crm_menu_sales" action="action_crm_customer_request" sequence="35"/>
+
+
+</odoo>

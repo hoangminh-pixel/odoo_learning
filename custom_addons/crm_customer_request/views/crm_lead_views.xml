@@ -1,0 +1,23 @@
+<odoo>
+    <record id="crm_lead_form_inherit_request" model="ir.ui.view">
+        <field name="name">crm.lead.form.customer.request</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <field name="is_new_stage" invisible="1"/>
+                <page string="Customer Requests">
+                    <field name="request_ids" attrs="{'readonly': [('is_new_stage', '=', False)]}">
+                        <tree editable="bottom">
+                            <field name="product_id" options="{'no_create': True, 'no_edit': True}"/>
+                            <field name="qty"/>
+                            <field name="date"/>
+                        </tree>
+                    </field>
+                    <field name="expected_revenue_from_request"/>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

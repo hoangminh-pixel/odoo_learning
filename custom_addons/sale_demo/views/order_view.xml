@@ -8,16 +8,25 @@
                   <form string="Sale Order">
                         <sheet>
                               <group>
-                                    <field name="name"/>
-                                    <field name="partner_id"/>
-                                    <field name="date_order"/>
-                                    <field name="state"/>
+                                    <group>
+                                          <field name="name"/>
+                                          <field name="partner_id"/>
+                                          <field name="date_order"/>
+                                          <field name="state"/>
+                                    </group>
+                                    <group>
+                                          <field name="name"/>
+                                          <field name="partner_id"/>
+                                          <field name="date_order"/>
+                                          <field name="state"/>
+                                    </group>
                               </group>
+
 
 
                               <notebook>
                                     <page string="Order Lines">
-                                          <field name="line_ids">
+                                          <field name="line_ids" context="{'default_quantity':10}" >
                                                 <tree editable="bottom">
                                                       <field name="product_name"/>
                                                       <field name="quantity"/>
@@ -41,7 +50,7 @@
                         <field name="name"/>
                         <field name="partner_id"/>
                         <field name="date_order"/>
-                        <!-- <field name="state"/> -->
+                        <field name="state"/>
                         <button name="action_open_detail" type="object" string="Detail" class="btn-primary"/>
                   </tree>
             </field>
@@ -58,6 +67,7 @@
             <field name="name">Sale Orders (List)</field>
             <field name="res_model">sale.demo.order</field>
             <field name="view_mode">tree</field>
+            <!-- <field name="domain">[('state','=','done')]</field> -->
       </record>
 
 
